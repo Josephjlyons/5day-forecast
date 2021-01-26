@@ -1,0 +1,46 @@
+body{
+    background: lightblue;
+}
+
+/* Header Text */
+#header{
+    text-align: center;
+    background: rgb(42, 42, 245); 
+    padding:20px 20px;
+    color: white;
+    font-size: 50px;
+    border-radius: 50px;
+    
+}
+
+/* Formatting for Search h2*/
+.search-header{
+    font: bold;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+
+/* Formatting for Previous search h3 */
+ #prev-search{
+     text-decoration: underline;
+     font-size: xx-large;
+ }
+
+/* Search Bar */
+ #search-bar{
+     width: 250px;
+    height: 32px;
+    font-size: x-large;
+ }
+
+/* Search Icon */
+ #searchBtn {
+     color: blue;
+     background:none;
+     border: none;
+ }
+
+ /* FA Sun in header */
+ .fa-sun{
+     color: gold;
+ }
