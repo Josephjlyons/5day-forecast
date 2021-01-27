@@ -23,7 +23,7 @@
     <div class="bg-dark pt-2 pb-2">
         <div class="container">
             <h1 id="header">
-                <span class="fas fa-sun fa-2x"></span> 5 Day Forecast
+                <span class="fas fa-sun fa-2x"></span> 5 Day Forecast <span class="fas fa-sun fa-2x"></span>
             </h1>
         </div>
     </div>
@@ -35,24 +35,41 @@
                 <h2 class="search-header my-1">Search For A City</h2>
                 <div class="input-group">
                     <input id="search-bar" type="text" class="form-control" placeholder="Enter City...">
-                    <button class="btn btn-primary" type="button" id="searchBtn"> 
+                    <button class="btn btn-primary" type="button" id="searchBtn">
                         <span class="fas fa-search-location fa-2x"></span></button>
-                        
-                  
 
-                        <h3 id="prev-search">Recently Viewed</h3>
-                        <ul class="list-previous-city">
+                    <h4 id="prev-search">Recently Viewed</h4>
 
-                    
+                    <ul class="list-previous-city">
+                    </ul>
+
                 </div>
             </div>
-
-            </ul>
-
         </div>
     </div>
 
     <!-- Need to make divs/containers/rows etc for current display and 5 day outlook -->
+
+    <div class="col">
+        <h4 class="currentFore">Current Forecast</h4>
+        <div class="card currentCard"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card fiveDayCard">
+                <!-- future -->
+                <h4 class="card-title">5-day Forecast</h4>
+                <div class="row">
+                    <div class="col currentFiveDay">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- Decide if DayJS will be used or use JS date and delete CDN -->
     <!-- Create a card for UV index  -->
 
