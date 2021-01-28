@@ -1,5 +1,5 @@
 body{
-    background: lightblue;
+    background-color: black;
 }
 
 /* Header Text */
@@ -13,17 +13,35 @@ body{
     
 }
 
+/* Current Forecast H/W */
+.currentCard {
+max-width: 500px;
+max-height: 500px;
+background-color: #1E90FF;
+}
+
+
 /* Formatting for Search h2*/
 .search-header{
     font: bold;
-    font-size: xx-large;
+    font-size: x-large;
     text-decoration: underline;
+}
+
+/* Class for when 5day renders */
+.fiveDay{
+    padding: 20px;
+    background-color: #1E90FF;
+    color: white;
+    float: left;
+    margin: 10px;
+    border: 2px solid white;
 }
 
 /* Formatting for Previous search h3 */
  #prev-search{
      text-decoration: underline;
-     font-size: xx-large;
+     font-size: x-large;
  }
 
 /* Search Bar */

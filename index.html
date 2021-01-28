@@ -13,74 +13,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 
-    <title>5 Day Forecast</title>
+    <title>Weather Outlook</title>
 </head>
 
 <body>
-    <!-- Header with font-awesome Sun -->
-    <div class="bg-dark pt-2 pb-2">
-        <div class="container">
+    <!-- Header with Font-Awesome Sun -->
+
+    <div class="container-fluid bg-dark p-2">
+        <div class="card bg-dark">
+            <div class="card-body text-center"></div>
             <h1 id="header">
-                <span class="fas fa-sun fa-2x"></span> 5 Day Forecast <span class="fas fa-sun fa-2x"></span>
+                <span class="fas fa-sun fa-2x"></span> 5 Day Forecast</span>
             </h1>
         </div>
-    </div>
 
-    <!-- Container Main -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 bg-dark">
-                <h2 class="search-header my-1">Search For A City</h2>
-                <div class="input-group">
-                    <input id="search-bar" type="text" class="form-control" placeholder="Enter City...">
-                    <button class="btn btn-primary" type="button" id="searchBtn">
-                        <span class="fas fa-search-location fa-2x"></span></button>
 
-                    <h4 id="prev-search">Recently Viewed</h4>
+        <!-- Container Main -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card-body text-center text-white">
 
-                    <ul class="list-previous-city">
-                    </ul>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card bg-dark">
+                                <h2 class="search-header my-3">Search For A City</h2>
+                                <div class="input-group">
+                                    <input id="search-bar" type="text" class="form-control" placeholder="Enter City...">
+                                    <button class="btn btn-primary" type="button" id="searchBtn">
+                                        <span class="fas fa-search-location fa-2x"></span></button>
+                                </div>
+                            </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
+                            <!-- Local Storage display previous searches as list -->
+                            <ul class=" list-previous-city">
+                            </ul>
 
-    <!-- Need to make divs/containers/rows etc for current display and 5 day outlook -->
-
-    <div class="col">
-        <h4 class="currentFore">Current Forecast</h4>
-        <div class="card currentCard"></div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card fiveDayCard">
-                <!-- future -->
-                <h4 class="card-title">5-day Forecast</h4>
-                <div class="row">
-                    <div class="col currentFiveDay">
-
+                        </div>
                     </div>
                 </div>
 
+
+
+                <!--Current display and 5 day outlook -->
+
+
+                <div class="col mt-4 mr-5">
+                    <div class="card currentCard bg-dark text-white pb-2 pt-1">
+                        <h4 class="card-title text-center">Current Forecast</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+
+                        <!-- future -->
+                        <h4 class="card-title text-white text-center">5-day Forecast</h4>
+                        <div class="card bg-dark text-white  text-center fiveDayCard">
+                            <div class="row">
+                                <div class="col bg-dark currentFiveDay">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-    <!-- Decide if DayJS will be used or use JS date and delete CDN -->
-    <!-- Create a card for UV index  -->
 
 
 
     <!-- JS File Link -->
     <script src="./forecast.JS"></script>
-    <!-- Day JS CDN
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.3/dayjs.min.js"
-            integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
-            crossorigin="anonymous"></script> -->
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

@@ -19,8 +19,6 @@ $(document).ready(function () {
 
 
 
-        let search = $("#search-bar").val();
-
         // Current Weather api
         $.ajax({
             url: dayUrl,
@@ -33,9 +31,9 @@ $(document).ready(function () {
             currentCard.append(currentCity);
 
             // Date Introduction 
+            currentCity.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
             let dateTime = new Date(response.dt * 1000);
             currentCity.append(response.name + " " + dateTime.toLocaleDateString("en-US"));
-            currentCity.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
             // Weather Conditions GET
             let currentTemp = currentCity.append("<p>");
             currentCity.append(currentTemp);
@@ -44,9 +42,22 @@ $(document).ready(function () {
             currentTemp.append(`<p>Humidity: ${response.main.humidity}%</p>`);
             currentTemp.append(`<p>Wind Speed: ${response.wind.speed}</p>`);
 
+     
+            // UV index URL 
+            let ultraUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=9983ad0489f9a6d7abad43f5825d0e06&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+
+            // UV api
+            $.ajax({
+                url: ultraUrl,
+                method: "GET"
+            }).then(function (response) {
+                let currentUv = ("<p>") + "UV Index: " + response.value + ("</p>");
+                currentTemp.append(currentUv);
+            });
 
 
-        })
+
+        });
 
         // 1.Formulas that make the project work
         // 2.Append divs and children to fill with info(weather conditions,temperature,humidity,wind speed,UV index)
@@ -59,20 +70,20 @@ $(document).ready(function () {
             url: fivedayUrl,
             method: "GET"
         }).then(function (response) {
-           
+            let day = [0, 8, 16, 24, 32];
+            let fiveDayCard = $(".fiveDayCard").addClass("card-body")
+            let fiveDay = $(".currentFiveDay").addClass("card-text");
+            fiveDay.empty();
+            day.forEach(function (i) {
+                let FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
+                FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
+                fiveDay.append(`<div class=fiveDay><p>${FiveDayTimeUTC1}</p>${`<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">`}<p>Temperature: ${response.list[i].main.temp}° F</p><p>Humidity: ${response.list[i].main.humidity}%</p> <p>Wind Speed: ${response.list[i].wind.speed}</p></div>`);
+
+
 
 
             })
         })
 
     })
-
-    // const apiKey = "9983ad0489f9a6d7abad43f5825d0e06";
-    // // UV index URL 
-    // const UltraUrl = "https://api.openweathermap.org/data/2.5/uvi?lat={lat}&lon={lon}&appid=" + apiKey + "&units=imperial";
-    // // UV api
-    // $.ajax({
-    //     url: UltraUrl,
-    //     method: "GET"
-    // }).then(function (response) { })
-
+});
