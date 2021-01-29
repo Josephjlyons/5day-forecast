@@ -15,9 +15,10 @@ body{
 
 /* Current Forecast H/W */
 .currentCard {
-max-width: 500px;
-max-height: 500px;
-background-color: #1E90FF;
+    max-width: 500px;
+    max-height: 520px;
+    background-color: #1E90FF !important;
+    border: 2px solid white !important;
 }
 
 
@@ -38,10 +39,28 @@ background-color: #1E90FF;
     border: 2px solid white;
 }
 
+.favorable {
+    color: lightgreen !important;
+    
+}
+
+.moderate {
+    color: yellow !important;
+   
+}
+
+.severe{
+    color: red !important;
+
+}
+
+
 /* Formatting for Previous search h3 */
- #prev-search{
+ .list-previous-city{
      text-decoration: underline;
+     text-align: left;
      font-size: x-large;
+     color: black;
  }
 
 /* Search Bar */
@@ -56,6 +75,7 @@ background-color: #1E90FF;
      color: blue;
      background:none;
      border: none;
+     font-size: x-large;
  }
 
  /* FA Sun in header */
