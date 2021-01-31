@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let searchBtn = $("#searchBtn");
 
-
+// Search Button that starts weather GET
 
     searchBtn.click(function () {
 
