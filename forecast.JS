@@ -6,7 +6,7 @@ $(document).ready(function () {
     searchBtn.click(function () {
 
         let city = $("#search-bar").val();
-        let searchCityInput = $(".searchInput").val();
+        let searchCityInput = $("#search-bar").val();
 
         // API KEY
         const apiKey = "9983ad0489f9a6d7abad43f5825d0e06";
@@ -24,18 +24,21 @@ $(document).ready(function () {
                 url: dayUrl,
                 method: "GET"
             }).then(function (response) {
-           
-                let searchInput = $(".searchInput").val();
-                function setLocalCity() {
-                    localStorage.setItem(response.name);
-                    localStorage.setItem("lastResult", searchInput.value);
-                }
-            
+
+                // local storage attempt
+                // let searchInput = $("#search-bar").val();
+                localStorage.setItem("key", (response.name));
+
+
+                let prevSearch = localStorage.getItem(response.name);
+                
+                // Appends searches to list 
                 let cityName = $(".list-previous-city").addClass("previousCity");
                 cityName.append("<li>" + response.name + "</li>");
+        
 
 
-
+                // Starts Append to Card
                 let currentCard = $(".currentCard").append("<div>").addClass("card-body");
                 currentCard.empty();
                 let currentCity = currentCard.append("<p>");
@@ -57,36 +60,30 @@ $(document).ready(function () {
                 // UV index URL 
                 let ultraUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=9983ad0489f9a6d7abad43f5825d0e06&lat=${response.coord.lat}&lon=${response.coord.lon}`;
 
-                // UV api
+                // UV API
                 $.ajax({
                     url: ultraUrl,
                     method: "GET"
                 }).then(function (response) {
                     let currentUv = ("<p>") + "UV Index: " + response.value + ("</p>");
                     let UvIndex = response.value;
-                    
-                  
+                    // currentTemp.append(currentUv);
 
-           
-                if (UvIndex <= 2){
-                currentTemp.append(currentUv).addClass("favorable")
-                }if (UvIndex > 2.01 && UvIndex <= 6.9){
-                   currentTemp.append(currentUv).addClass("moderate")
-                }if (UvIndex >= 7){
-                currentTemp.append(currentUv).addClass("severe")
+                    // Changes color of font depending on UV index
 
-                
-                }
+                    if (UvIndex <= 2) {
+                        currentTemp.append(currentUv).addClass("favorable")
+                    } if (UvIndex > 2.01 && UvIndex <= 6.9) {
+                        currentTemp.append(currentUv).addClass("moderate")
+                    } if (UvIndex >= 7) {
+                        currentTemp.append(currentUv).addClass("severe")
+
+
+                    }
                 });
-                
+
 
             });
-         
-
-            // 1.Formulas that make the project work
-            // 2.Append divs and children to fill with info(weather conditions,temperature,humidity,wind speed,UV index)
-            // 3.Introduce date function for current day and updated 5 day
-            // 4.UV append card
 
 
             // fiveday Outlook api
@@ -107,7 +104,7 @@ $(document).ready(function () {
 
                 })
             });
-            
+
         }
     });
 
