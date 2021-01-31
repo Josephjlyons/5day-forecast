@@ -1,7 +1,11 @@
-$(document).ready(function () {
-    let searchBtn = $("#searchBtn");
+let searchBtn = $("#searchBtn");
+let cityBtn = $("cityBtn");
 
-// Search Button that starts weather GET
+let cityArray = []
+
+
+$(document).ready(function () {
+    // Search Button that starts weather GET
 
     searchBtn.click(function () {
 
@@ -25,17 +29,15 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (response) {
 
-                // local storage attempt
-                // let searchInput = $("#search-bar").val();
-                localStorage.setItem("key", (response.name));
+                // local storage attempt -- need to rework
 
-
+                localStorage.setItem(cityArray, response.name);
                 let prevSearch = localStorage.getItem(response.name);
-                
+
                 // Appends searches to list 
+
                 let cityName = $(".list-previous-city").addClass("previousCity");
-                cityName.append("<li>" + response.name + "</li>");
-        
+                cityName.append("<li>", `<button class='cityBtn'>${response.name}</button>`, "</li>");
 
 
                 // Starts Append to Card
@@ -45,9 +47,9 @@ $(document).ready(function () {
                 currentCard.append(currentCity);
 
                 // Date Introduction 
-                currentCity.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
                 let dateTime = new Date(response.dt * 1000);
                 currentCity.append(response.name + " " + dateTime.toLocaleDateString("en-US"));
+                currentCity.append(`<img class="weatherImg text-center" src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
                 // Weather Conditions GET
                 let currentTemp = currentCity.append("<p>");
                 currentCity.append(currentTemp);

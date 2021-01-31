@@ -15,6 +15,7 @@ body{
 
 /* Current Forecast H/W */
 .currentCard {
+    text-align: center;
     max-width: 500px;
     max-height: 520px;
     background-color: #1E90FF !important;
@@ -27,6 +28,7 @@ body{
     font: bold;
     font-size: x-large;
     text-decoration: underline;
+    border: 2px solid white;
 }
 
 /* Class for when 5day renders */
@@ -37,6 +39,15 @@ body{
     float: left;
     margin: 10px;
     border: 2px solid white;
+}
+
+/* Icon in currentDay weather */
+.weatherImg{
+    width: 150px;
+    height: 150px;
+    margin-right: auto;
+    margin-left: auto;
+
 }
 
 /* UV-index colors */
@@ -55,14 +66,22 @@ body{
     color: red !important;
 
 }
-
+/* Previous City Btn */
+.cityBtn{
+    color: white;
+    background: #1E90FF;
+   border-radius: 10%;
+   
+ 
+}
 
 /* Formatting for Previous search h3 */
  .list-previous-city{
      text-decoration: underline;
      text-align: left;
      font-size: x-large;
-     color: black;
+     border: 2px solid white;
+     
  }
 
 /* Search Bar */
