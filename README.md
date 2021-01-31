@@ -5,7 +5,7 @@ This is a basic web application that allows the user to search for a city of the
 
 ## Project Image
 
-![image of project] https://github.com/Josephjlyons/5day-forecast/blob/main/dashboardImg.png
+![image of project] -Ran into an issue that wont let me update image file... deleted and stuck.
 
 ## Application Link
 
