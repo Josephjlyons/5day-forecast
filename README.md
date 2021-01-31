@@ -14,12 +14,12 @@ This is a basic web application that allows the user to search for a city of the
 ### Code Used
 This application includes the following:
 
-HTML
-CSS
-JS
-JQuery
-Bootstrap
-Font Awesome
+* HTML
+* CSS
+* JS
+* JQuery
+* Bootstrap
+* Font Awesome
 
 
 ### Contact
